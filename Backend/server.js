@@ -1,3 +1,4 @@
+import dotenv from 'dotenv';
 import express from 'express';
 import bodyParser from 'body-parser';
 import session from 'express-session';
@@ -18,6 +19,7 @@ import attendanceRoutes from './routes/attendanceRoutes.js';
 import notesRoutes from './routes/notesRoutes.js';
 import assignmentRoutes from './routes/assignmentRoutes.js';
 import lectureRoutes from './routes/lectureRoutes.js';
+import userRoutes from './routes/userRoutes.js';
 
 const app = express();
 const server = http.createServer(app);
@@ -93,6 +95,7 @@ app.use('/api/attendance', attendanceRoutes);
 app.use('/api/notes', notesRoutes);
 app.use('/api/assignment', assignmentRoutes);
 app.use('/api/lecture', lectureRoutes);
+app.use('/api/users', userRoutes);
 
 // Setup Socket.IO - Fix: Initialize after routes
 const io = setupSocket(server);
